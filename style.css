@@ -1,0 +1,473 @@
+/*/-/-/-/-/  CONFIG.GERAIS   -/-/-/-/-/*/
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+:root { 
+ /*-I-I-I-I-I- CORES -I-I-I-I-I-I-*/ 
+  --title-primary: hsl(240, 6%, 13%);
+  --text-primary: hsl(240, 5%, 7%);
+  --text-input: hsl(0, 12%, 36%);
+  --border-color: hsl(298, 92%, 53%);
+
+/*-I-I-I-I-I- TAMANHOS -I-I-I-I-I-I-*/   
+  font-size: 62.5%;
+  --tex-base: 1.6rem;
+  --text-small: 1.4rem;
+
+  /*-I-I-I-I-I- GATO -I-I-I-I-I-I-*/
+  --color-body: #666; /* Cor do corpo do gatinho */
+  --color-inner-ear: #999; /* Cor interna das orelhas */
+  --color-face: #333; /* Cor da face do gatinho */
+  --color-eye-white: #f0f0f0; /* Branco dos olhos */
+  --color-pupil: #000; /* Pupila dos olhos */
+  --color-muzzle: #ccc; /* Focinho */
+  --size: 3rem; /* Tamanho do gatinho */
+}
+
+html {
+  font: 400 var(--tex-base) /160% "Mulish", Sans-serif;
+  color: var(--text-primary);
+}
+
+body {
+  background: rgb(246,211,252);
+  background: linear-gradient(0deg, rgba(246,211,252,1) 0%, rgba(251,235,255,1) 49%, rgba(251,244,255,1) 94%);
+}
+
+h1,h2, h3 {
+  font-size: 2.4rem;
+  color: var(--title-primary);
+}
+
+h3 {
+  font-size: 1.8rem;
+  line-height: 100%;
+}
+
+.text-small {
+  font-size: var(--text-small);
+}
+
+.container {
+  max-width: calc(39rem + (2rem*2));
+
+  margin-inline: auto;
+}
+
+/*/-/-/-/-/   HEADER   -/-/-/-/-/*/
+header {
+  background-image: url(./assets/images/background.png);
+  background-size: fill;
+  padding: 1.2rem 2.8rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+header .container {
+  max-width: 37.4rem;
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.6rem;
+}
+#user {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+header form input {
+  background-color: rgba(119, 117, 117, 0.2);
+  border: none;
+  border-radius: 0.4rem;
+  padding: 1.2rem 1.2rem;
+
+  font-family: "Mulish", sans-serif;
+  color: var(--text-input);
+  font-weight: 700;
+  line-height: 100%;
+}
+
+header form input::placeholder {
+  color: var(--text-input);
+  font-weight: 700;
+}
+
+/*/-/-/-/-/   MAIN   -/-/-/-/-/*/
+main h1 {
+  margin: 1.5rem 1.2rem;
+  margin-inline: 1.2rem;
+}
+
+main p {
+  margin: 1.5rem 1.2rem;
+  font-size: 1.6rem;
+}
+
+main .buttons {
+  margin: 1.5rem 1.2rem;
+  margin-inline: 1.2rem;
+}
+
+button {
+  all: unset;
+
+  transition: all 300ms;
+}
+
+button:hover {
+  transform: scale(1.2) rotate(-15deg);
+}
+
+button + button {
+  margin-left: 1rem;
+}
+
+/*/-/-/-/-/   ASIDE   -/-/-/-/-/*/
+aside {
+  margin-top: 2rem;
+}
+
+aside h2 {
+  margin: 1.5rem 1.2rem;
+}
+
+section {
+  margin: 1.5rem 1.2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+section article {
+  display: grid;
+
+  grid-template-columns: 15rem 1fr;
+  gap: 1.5rem;
+}
+
+section article p {
+  margin-top: 1.2rem;
+}
+
+article img {
+  border-radius: 5px;
+}
+
+/*/-/-/-/-/   ASIDE   -/-/-/-/-/*/
+footer {
+  background-image: url(./assets/images/background.png);
+  color: var(--text-input);
+  font-weight: 900;
+  font-size: 1.8rem;
+  text-align: center;
+
+  margin-top: 2.5rem;
+  padding-block: 2rem;
+
+  border-top: 2px solid var(--border-color);
+}
+
+/*/-/-/-/-/   DESKTOP   -/-/-/-/-/*/
+
+@media (width > 80rem){
+  #page {
+    display: grid;
+    grid-template-areas: 
+    "header  header"
+    "main    aside"
+    "footer  footer"; 
+    gap: 2.5rem 3rem;
+  }
+
+  img {
+    border-radius: 5px;
+    height: auto;
+    display: block;
+    transition: all 300ms;
+  }
+
+  #banner {
+    min-width: 62rem;
+  }
+
+  header .container, 
+  .container {
+    max-width: initial;
+    margin-inline: initial;
+    padding: initial;
+  }
+
+  header {
+    grid-area: header;
+  }
+  
+  header form {
+    flex: 1;
+  }
+
+  header .container {
+    max-width: 121rem;
+    margin-inline: auto;
+  }
+
+  header form input {
+    width: 100%;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  main.container {
+    max-width: 80rem;
+    margin-left: auto;
+  }
+
+  main p {
+    max-height: 60rem;
+    max-width: 62rem;
+  }
+
+  aside {
+    grid-area: aside;
+  }
+
+  aside.container {
+    max-width: 39rem;
+  }
+
+  footer {
+    grid-area: footer;
+    margin-top: 9.5rem;
+  }
+
+}
+
+/*/-/-/-/-/   ANIMAÇÕES  -/-/-/-/-/*/
+header {
+  animation: fromTop 600ms 400ms backwards;
+}
+
+main, aside {
+  animation: fromBottom 600ms 400ms backwards;
+}
+
+@keyframes fromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+img:hover {
+  scale: 1.02;
+}
+
+@keyframes fromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+
+/*/-/-/-/-/   GATO   -/-/-/-/-/*/
+@keyframes blink {
+  0% { height: 0; }
+  90% { height: 0; }
+  92.5% { height: 100%; }
+  95% { height: 0; }
+  97.5% { height: 100%; }
+  100% { height: 0; }
+}
+
+@keyframes look-around {
+  0% { transform: translate(0); }
+  5% { transform: translate(50%, -25%); }
+  10% { transform: translate(50%, -25%); }
+  15% { transform: translate(-100%, -25%); }
+  20% { transform: translate(-100%, -25%); }
+  25% { transform: translate(0, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes wiggle-left {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes wiggle-right {
+  0%, 100% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+/*/-/-/-/-/   GATO   -/-/-/-/-/*/
+.cat {
+  position: relative;
+  height: var(--size);
+  width: calc(var(--size) * 1.13);
+}
+
+/*/-/-/-/-/   ORELHAS   -/-/-/-/-/*/
+.ear {
+  position: absolute;
+  top: -30%;
+  height: 60%;
+  width: 25%;
+  background: var(--color-inner-ear); /* Cor interna das orelhas */
+}
+
+.ear::before,
+.ear::after {
+  content: '';
+  position: absolute;
+  bottom: 24%;
+  height: 10%;
+  width: 5%;
+  border-radius: 50%;
+  background: var(--color-face); /* Cor do cabelo da orelha */
+}
+
+.ear--left {
+  left: -7%;
+  border-radius: 70% 30% 0% 0% / 100% 100% 0% 0%;
+  transform: rotate(-15deg);
+  animation: wiggle-left 2s infinite; /* Adiciona a animação de mexer a orelha esquerda */
+}
+
+.ear--left::before,
+.ear--left::after {
+  right: 10%;
+}
+
+.ear--left::after {
+  transform: rotate(-45deg);
+}
+
+.ear--right {
+  right: -7%;
+  border-radius: 30% 70% 0% 0% / 100% 100% 0% 0%;
+  transform: rotate(15deg);
+  animation: wiggle-right 2s infinite; /* Adiciona a animação de mexer a orelha direita */
+}
+
+.ear--right::before,
+.ear--right::after {
+  left: 10%;
+}
+
+.ear--right::after {
+  transform: rotate(45deg);
+}
+
+/*/-/-/-/-/   FACE   -/-/-/-/-/*/
+.face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: var(--color-face); /* Cor da face */
+  border-radius: 50%;
+}
+
+/*/-/-/-/-/   OLHOS   -/-/-/-/-/*/
+.eye {
+  position: absolute;
+  top: 35%;
+  height: 30%;
+  width: 31%;
+  background: var(--color-eye-white); /* Branco dos olhos */
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.eye::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  border-radius: 0 0 50% 50% / 0 0 40% 40%;
+  background: var(--color-face); /* Cor das pálpebras */
+  animation: blink 4s infinite ease-in;
+}
+
+.eye::before {
+  content: '';
+  position: absolute;
+  top: 60%;
+  height: 10%;
+  width: 15%;
+  background: var(--color-eye-white); /* Branco dos olhos */
+  border-radius: 50%;
+}
+
+.eye--left {
+  left: 0;
+}
+
+.eye--left::before {
+  right: -5%;
+}
+
+.eye--right {
+  right: 0;
+}
+
+.eye--right::before {
+  left: -5%;
+}
+
+/*/-/-/-/-/   PUPILAS   -/-/-/-/-/*/
+.eye-pupil {
+  position: absolute;
+  top: 25%;
+  height: 50%;
+  width: 20%;
+  background: var(--color-pupil); /* Pupilas */
+  border-radius: 50%;
+  animation: look-around 4s infinite;
+}
+
+.eye-pupil::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: -5%;
+  height: 20%;
+  width: 35%;
+  border-radius: 50%;
+  background: var(--color-eye-white); /* Branco dos olhos */
+}
+
+.eye--left .eye-pupil {
+  right: 30%;
+}
+
+.eye--right .eye-pupil {
+  left: 30%;
+}
+
+/*/-/-/-/-/   FOCINHO  -/-/-/-/-/*/
+.muzzle {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  height: 6%;
+  width: 10%;
+  background: var(--color-muzzle); /* Focinho */
+  transform: translateX(-50%);
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+}
